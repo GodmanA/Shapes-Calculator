@@ -1,0 +1,133 @@
+echo "# Shapes-Calculator" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/GodmanA/Shapes-Calculator.git
+git push -u origin main
+import java.util.Scanner;
+
+public class App {
+    public static void main(String args[]) {
+
+        Scanner scan = new Scanner(System.in);
+
+        System.out.println(" Select the shapes\n 1- Circle\n 2- Square\n 3-Rectangle\n 4- Triangle\n");
+        int shapesChoice = scan.nextInt();
+
+        System.out.println(" what do you want to calculate\n 1-area\n 2- Perimeter\n 3-Both");
+        int calChoice = scan.nextInt();
+
+        switch (shapesChoice) {
+            case 1:
+
+                if (calChoice == 1) {
+                    System.out.println("enter the redius of the circle");
+                    double r = scan.nextDouble();
+                    double area = Math.PI * r * r;
+                    System.out.println("Area" + area);
+
+                } else if (calChoice == 2) {
+                    System.out.println("enter the radius");
+                    double r = scan.nextDouble();
+                    double perimeter = 2 * Math.PI * r;
+                    System.out.println("Perimter" + perimeter);
+
+                } else if (calChoice == 3) {
+                    System.out.println("enter radius for area and perimeter");
+                    double r = scan.nextDouble();
+                    double area = Math.PI * r * r;
+                    double perimeter = 2 * Math.PI * r;
+                    System.out.println("both " + area + perimeter);
+
+                }
+                break;
+
+            case 2:
+                if (calChoice == 1) {
+                    System.out.println("enter the side");
+                    double a = scan.nextDouble();
+                    double area = a * a;
+                    System.out.println("Area " + area);
+
+                } else if (calChoice == 2) {
+                    System.out.println("enter the side");
+                    double a = scan.nextDouble();
+                    double perimeter = 4 * a;
+                    System.out.println("Perimter" + perimeter);
+                } else if (calChoice == 3) {
+                    System.out.println("enter side for area and perimeter");
+                    double a = scan.nextDouble();
+                    double area = a * a;
+                    double perimeter = 4 * a;
+                    System.out.println("both " + area + perimeter);
+                   
+
+                }
+                break;
+
+            case 3:
+                if (calChoice == 1) {
+                    System.out.println("enter the length");
+                    double l = scan.nextDouble();
+                    System.out.println("enter the width");
+                    double w = scan.nextDouble();
+                    double area = l * w;
+                    System.out.println("Area " + area);
+                } else if (calChoice == 2) {
+                    System.out.println("enter the length");
+                    double l = scan.nextDouble();
+                    System.out.println("enter the width");
+                    double w = scan.nextDouble();
+                    double perimeter = 2 * l + w;
+                    System.out.println("Perimter" + perimeter);
+                } else if (calChoice == 3) {
+                    System.out.println("enter length for area and perimeter");
+                    double l = scan.nextDouble();
+                    System.out.println("enter width for area and perimeter");
+                    double w = scan.nextDouble();
+                    double area = l * w;
+                    double perimeter = 2 * l + w;
+                    System.out.println("both " + area + perimeter);
+                   
+
+                }
+                break;
+            case 4:
+                if (calChoice == 1) {
+                    System.out.println("enter the height");
+                    double h = scan.nextDouble();
+                    System.out.println("enter the base");
+                    double b = scan.nextDouble();
+                    double area = h * b / 2;
+                    System.out.println("Area " + area);
+                } else if (calChoice == 2) {
+                    System.out.println("enter the first side");
+                    double a = scan.nextDouble();
+                    System.out.println("enter the second side");
+                    double b = scan.nextDouble();
+                    System.out.println("enter the third side");
+                    double c = scan.nextDouble();
+                    double perimeter = a + b + c;
+                    System.out.println("Perimeter" + perimeter);
+                } else if (calChoice == 3) {
+                    System.out.println("enter the height");
+                    double h = scan.nextDouble();
+                    System.out.println("enter the base");
+                    double b = scan.nextDouble();
+                    double area = h * b / 2;
+                    System.out.println("enter the first side");
+                    double a = scan.nextDouble();
+                    System.out.println("enter the third side");
+                    double c = scan.nextDouble();
+                    double perimeter = a + b + c;
+                    System.out.println("both " + area + perimeter);
+                    
+                }
+                break;
+
+        }
+
+    }
+
+}
