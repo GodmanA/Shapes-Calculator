@@ -1,0 +1,354 @@
+import java.util.Scanner;
+
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        double input;
+
+        do {
+            System.out.println("Select the kind of shape\n 1-Circle\n 2-Square\n 3-Rectangle\n 4-Triangle\n");
+            int shapeOpt = scan.nextInt();
+
+            System.out.println(" Select the Calculation\n 1-Area\n 2-Perimeter\n 3-both\n");
+            int calOpt = scan.nextInt();
+
+            switch (shapeOpt) {
+                case 1:
+                    if (calOpt == 1) {
+                        Circle circle = new Circle(scan);
+                        System.out.println(circle.getAreaMessage());
+                        System.out.println("Area: " + circle.calculateArea());
+                    }  else if (calOpt == 2) {
+                        Circle circle = new Circle(scan);
+                        System.out.println(circle.getPerimeterMessage());
+                        System.out.println("Perimeter: " + circle.calculatePerimeter());
+
+                    }  else if (calOpt == 3){
+                        Circle circle = new Circle(scan);
+                        System.out.println(circle.getBothMessage());
+                        System.out.println("Both= " + circle.calculateBoth());
+
+
+                    }
+                    break;
+                case 2:
+                    if (calOpt == 1){
+                        Square square = new Square(scan);
+                        System.out.println(square.getAreaMessage());
+                        System.out.println("Area: " + square.calculateArea());
+                    } else if (calOpt == 2) {
+                        Square square = new Square(scan);
+                        System.out.println(square.getPerimeterMessage());
+                        System.out.println("Perimeter: " + square.calculatePerimeter());
+                    }else if (calOpt == 3) {
+                        Square square = new Square(scan);
+                        System.out.println(square.getBothMessage());
+                        System.out.println("Both= " + square.calculateBoth());
+                    }
+                    break;
+                case 3:
+                    if (calOpt == 1){
+                        Rectangle rectangle = new Rectangle(scan);
+                        System.out.println(rectangle.getAreaMessage());
+                        System.out.println("Area: " + rectangle.calculateArea());
+                    }else if(calOpt == 2){
+                        Rectangle rectangle = new Rectangle(scan);
+                        System.out.println(rectangle.getPerimeterMessage());
+                        System.out.println("Perimeter: " + rectangle.calculatePerimeter());
+
+                    }else if (calOpt == 3) {
+                        Rectangle rectangle = new Rectangle(scan);
+                        System.out.println(rectangle.getBothMessage());
+                        System.out.println("Both= " + rectangle.calculateBoth());
+                    }
+                    break;
+                case 4:
+                    if(calOpt == 1){
+                        Triangle triangle = new Triangle(scan);
+                        System.out.println(triangle.getAreaMessage());
+                        System.out.println("Area: " + triangle.calculateArea());
+
+                    } else if(calOpt == 2){
+                        Triangle triangle = new Triangle(scan);
+                        System.out.println(triangle.getPerimeterMessage());
+                        System.out.println("Perimeter: " + triangle.calculatePerimeter());
+
+                    }else if (calOpt == 3){
+                        Triangle triangle = new Triangle(scan);
+                        System.out.println(triangle.getBothMessage());
+                        System.out.println("Both= " + triangle.calculateBoth());
+                    }
+
+
+            }
+            System.out.println("Do you want to start again? (1-yes 2-no): ");
+            input = scan.nextInt();
+
+        } while (input == 1);
+        System.out.println("Program ended. Thank you for using it!");
+        scan.close();
+    }
+}
+
+
+
+//Shape class
+public interface Shape {
+    double calculateArea();
+
+    double calculatePerimeter();
+
+    String calculateBoth();
+
+    String getAreaMessage();
+
+    String getPerimeterMessage();
+
+    String getBothMessage();
+
+}
+
+// Circle class
+import java.util.Scanner;
+
+
+public class Circle implements Shape{
+    public double radius;
+    private Scanner scan;
+
+
+
+
+
+    public Circle(Scanner scan) {
+        this.scan = scan;
+
+    }
+
+    @Override
+    public double calculateArea() {
+        int radius = scan.nextInt();
+        return Math.PI * Math.pow(radius, 2);
+
+    }
+
+    @Override
+    public double calculatePerimeter() {
+        int radius = scan.nextInt();
+        return 2 * Math.PI * radius;
+
+    }
+
+    @Override
+    public String calculateBoth() {
+        return "Area: " + calculateArea() +
+                " \nPerimeter: " + calculatePerimeter();
+
+    }
+
+    @Override
+    public String getAreaMessage() {
+        return ("enter the radius of the circle");
+
+    }
+
+    @Override
+    public String getPerimeterMessage() {
+        return ("enter the radius of the circle");
+
+    }
+
+    @Override
+    public String getBothMessage() {
+        return ("enter the radius of the circle for both area and perimeter");
+
+    }
+
+}
+
+
+//Square class
+import java.util.Scanner;
+
+public class Square implements Shape {
+    public double sideLength;
+    private Scanner scan;
+
+
+
+
+
+    public Square(Scanner scan) {
+        this.scan = scan;
+
+    }
+
+    @Override
+    public double calculateArea() {
+        int sideLength= scan.nextInt();
+        return Math.pow(sideLength, 2);
+
+    }
+
+    @Override
+    public double calculatePerimeter() {
+        int sideLength= scan.nextInt();
+        return 4 * sideLength;
+
+    }
+
+    @Override
+    public String calculateBoth() {
+        return "Area: " + calculateArea() +
+                " \nperimeter: " + calculatePerimeter();
+
+    }
+
+    @Override
+    public String getAreaMessage() {
+        return ("enter the side length of the square");
+
+    }
+
+    @Override
+    public String getPerimeterMessage() {
+        return ("enter the side length of the square");
+
+    }
+
+    @Override
+    public String getBothMessage() {
+        return ("enter the side length of the square for both area and perimeter");
+
+    }
+
+}
+
+
+
+//Rectangle class
+import java.util.Scanner;
+
+public class Rectangle implements Shape{
+    public double length;
+    public double width;
+    private Scanner scan;
+
+
+
+    public Rectangle(Scanner scan) {
+        this.scan = scan;
+    }
+
+    @Override
+    public double calculateArea() {
+        int length = scan.nextInt();
+        int width = scan.nextInt();
+        return length * width;
+
+    }
+
+    @Override
+    public double calculatePerimeter() {
+        int length = scan.nextInt();
+        int width = scan.nextInt();
+        return 2 * (length + width);
+
+    }
+
+    @Override
+    public String calculateBoth() {
+        return "Area: " + calculateArea() +
+                " \nperimeter: " + calculatePerimeter();
+
+
+    }
+
+    @Override
+    public String getAreaMessage() {
+        return ("enter the length\n enter the width\n");
+
+    }
+
+    @Override
+    public String getPerimeterMessage() {
+        return ("enter the length\n enter the width\n");
+
+    }
+
+    @Override
+    public String getBothMessage() {
+        return ("enter the length\n enter the width\n for both area and perimeter");
+
+    }
+
+}
+
+
+
+//Traingle class
+import java.util.Scanner;
+
+public class Triangle implements Shape{
+    public double height;
+    public double base;
+    public double side;
+
+    private Scanner scan;
+
+
+
+    public Triangle(Scanner scan) {
+        this.scan = scan;
+    }
+
+    @Override
+    public double calculateArea() {
+        int height = scan.nextInt();
+        int base= scan.nextInt();
+        return (height * base) / 2;
+
+    }
+
+    @Override
+    public double calculatePerimeter() {
+        int height= scan.nextInt();
+        int base= scan.nextInt();
+        int side= scan.nextInt();
+        return height + base + side;
+
+    }
+
+    @Override
+    public String calculateBoth() {
+        return "Area: " + calculateArea() +
+                " \nperimeter: " + calculatePerimeter();
+
+
+    }
+
+    @Override
+    public String getAreaMessage() {
+        return ("enter the height of the Triangle\n enter the base of the Triangle\n");
+
+    }
+
+    @Override
+    public String getPerimeterMessage() {
+        return ("enter the height of the Triangle\n enter the base of the Triangle\n enter the side of the triangle");
+
+    }
+
+    @Override
+    public String getBothMessage() {
+        return ("enter the height of the Triangle\n enter the base of the Triangle\n enter the side of the triangle\n for both area and perimeter");
+
+    }
+
+}
+
+
+
+
+
