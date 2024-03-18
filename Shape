@@ -1,0 +1,14 @@
+public interface Shape {
+    double calculateArea();
+
+    double calculatePerimeter();
+
+    String calculateBoth();
+
+    String getAreaMessage();
+
+    String getPerimeterMessage();
+
+    String getBothMessage();
+
+}
