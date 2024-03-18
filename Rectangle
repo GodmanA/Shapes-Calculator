@@ -1,0 +1,56 @@
+import java.util.Scanner;
+
+public class Rectangle implements Shape{
+    public double length;
+    public double width;
+    private Scanner scan;
+
+
+
+    public Rectangle(Scanner scan) {
+        this.scan = scan;
+    }
+
+    @Override
+    public double calculateArea() {
+        int length = scan.nextInt();
+        int width = scan.nextInt();
+        return length * width;
+
+    }
+
+    @Override
+    public double calculatePerimeter() {
+        int length = scan.nextInt();
+        int width = scan.nextInt();
+        return 2 * (length + width);
+
+    }
+
+    @Override
+    public String calculateBoth() {
+        return "Area: " + calculateArea() +
+                " \nperimeter: " + calculatePerimeter();
+
+
+    }
+
+    @Override
+    public String getAreaMessage() {
+        return ("enter the length\n enter the width\n");
+
+    }
+
+    @Override
+    public String getPerimeterMessage() {
+        return ("enter the length\n enter the width\n");
+
+    }
+
+    @Override
+    public String getBothMessage() {
+        return ("enter the length\n enter the width\n for both area and perimeter");
+
+    }
+
+}
