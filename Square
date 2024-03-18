@@ -1,0 +1,55 @@
+import java.util.Scanner;
+
+public class Square implements Shape {
+    public double sideLength;
+    private Scanner scan;
+
+
+
+
+
+    public Square(Scanner scan) {
+        this.scan = scan;
+
+    }
+
+    @Override
+    public double calculateArea() {
+        int sideLength= scan.nextInt();
+        return Math.pow(sideLength, 2);
+
+    }
+
+    @Override
+    public double calculatePerimeter() {
+        int sideLength= scan.nextInt();
+        return 4 * sideLength;
+
+    }
+
+    @Override
+    public String calculateBoth() {
+        return "Area: " + calculateArea() +
+                " \nperimeter: " + calculatePerimeter();
+
+    }
+
+    @Override
+    public String getAreaMessage() {
+        return ("enter the side length of the square");
+
+    }
+
+    @Override
+    public String getPerimeterMessage() {
+        return ("enter the side length of the square");
+
+    }
+
+    @Override
+    public String getBothMessage() {
+        return ("enter the side length of the square for both area and perimeter");
+
+    }
+
+}
