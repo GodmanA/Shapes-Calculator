@@ -1,0 +1,59 @@
+import java.util.Scanner;
+
+public class Triangle implements Shape{
+    public double height;
+    public double base;
+    public double side;
+
+    private Scanner scan;
+
+
+
+    public Triangle(Scanner scan) {
+        this.scan = scan;
+    }
+
+    @Override
+    public double calculateArea() {
+        int height = scan.nextInt();
+        int base= scan.nextInt();
+        return (height * base) / 2;
+
+    }
+
+    @Override
+    public double calculatePerimeter() {
+        int height= scan.nextInt();
+        int base= scan.nextInt();
+        int side= scan.nextInt();
+        return height + base + side;
+
+    }
+
+    @Override
+    public String calculateBoth() {
+        return "Area: " + calculateArea() +
+                " \nperimeter: " + calculatePerimeter();
+
+
+    }
+
+    @Override
+    public String getAreaMessage() {
+        return ("enter the height of the Triangle\n enter the base of the Triangle\n");
+
+    }
+
+    @Override
+    public String getPerimeterMessage() {
+        return ("enter the height of the Triangle\n enter the base of the Triangle\n enter the side of the triangle");
+
+    }
+
+    @Override
+    public String getBothMessage() {
+        return ("enter the height of the Triangle\n enter the base of the Triangle\n enter the side of the triangle\n for both area and perimeter");
+
+    }
+
+}
