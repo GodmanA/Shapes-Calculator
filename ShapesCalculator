@@ -1,3 +1,4 @@
+
 import java.util.Scanner;
 
 
@@ -13,74 +14,36 @@ public class Main {
             System.out.println(" Select the Calculation\n 1-Area\n 2-Perimeter\n 3-both\n");
             int calOpt = scan.nextInt();
 
+            Shape shape = null;
+
             switch (shapeOpt) {
                 case 1:
-                    if (calOpt == 1) {
-                        Circle circle = new Circle(scan);
-                        System.out.println(circle.getAreaMessage());
-                        System.out.println("Area: " + circle.calculateArea());
-                    }  else if (calOpt == 2) {
-                        Circle circle = new Circle(scan);
-                        System.out.println(circle.getPerimeterMessage());
-                        System.out.println("Perimeter: " + circle.calculatePerimeter());
-
-                    }  else if (calOpt == 3){
-                        Circle circle = new Circle(scan);
-                        System.out.println(circle.getBothMessage());
-                        System.out.println("Both= " + circle.calculateBoth());
-
-
-                    }
+                    shape = new Circle(scan);
                     break;
                 case 2:
-                    if (calOpt == 1){
-                        Square square = new Square(scan);
-                        System.out.println(square.getAreaMessage());
-                        System.out.println("Area: " + square.calculateArea());
-                    } else if (calOpt == 2) {
-                        Square square = new Square(scan);
-                        System.out.println(square.getPerimeterMessage());
-                        System.out.println("Perimeter: " + square.calculatePerimeter());
-                    }else if (calOpt == 3) {
-                        Square square = new Square(scan);
-                        System.out.println(square.getBothMessage());
-                        System.out.println("Both= " + square.calculateBoth());
-                    }
+                    shape = new Square(scan);
                     break;
                 case 3:
-                    if (calOpt == 1){
-                        Rectangle rectangle = new Rectangle(scan);
-                        System.out.println(rectangle.getAreaMessage());
-                        System.out.println("Area: " + rectangle.calculateArea());
-                    }else if(calOpt == 2){
-                        Rectangle rectangle = new Rectangle(scan);
-                        System.out.println(rectangle.getPerimeterMessage());
-                        System.out.println("Perimeter: " + rectangle.calculatePerimeter());
-
-                    }else if (calOpt == 3) {
-                        Rectangle rectangle = new Rectangle(scan);
-                        System.out.println(rectangle.getBothMessage());
-                        System.out.println("Both= " + rectangle.calculateBoth());
-                    }
+                    shape = new Rectangle(scan);
                     break;
                 case 4:
-                    if(calOpt == 1){
-                        Triangle triangle = new Triangle(scan);
-                        System.out.println(triangle.getAreaMessage());
-                        System.out.println("Area: " + triangle.calculateArea());
-
-                    } else if(calOpt == 2){
-                        Triangle triangle = new Triangle(scan);
-                        System.out.println(triangle.getPerimeterMessage());
-                        System.out.println("Perimeter: " + triangle.calculatePerimeter());
-
-                    }else if (calOpt == 3){
-                        Triangle triangle = new Triangle(scan);
-                        System.out.println(triangle.getBothMessage());
-                        System.out.println("Both= " + triangle.calculateBoth());
-                    }
+                    shape = new Triangle(scan);
+                    break;
+                default:
+                throw new IllegalArgumentException("Invalid shape option");
 
 
+                }
+
+            if (calOpt == 1) {
+                System.out.println(shape.getAreaMessage());
+                System.out.println("Area: " + shape.calculateArea());
+            } else if (calOpt == 2) {
+                System.out.println(shape.getPerimeterMessage());
+                System.out.println("Perimeter: " + shape.calculatePerimeter());
+            } else if (calOpt == 3) {
+                System.out.println(shape.getBothMessage());
+                System.out.println("Both= " + shape.calculateBoth());
             }
             System.out.println("Do you want to start again? (1-yes 2-no): ");
             input = scan.nextInt();
@@ -88,13 +51,11 @@ public class Main {
         } while (input == 1);
         System.out.println("Program ended. Thank you for using it!");
         scan.close();
+
+
+
+
+
     }
+
 }
-
-
-
-
-
-
-
-
